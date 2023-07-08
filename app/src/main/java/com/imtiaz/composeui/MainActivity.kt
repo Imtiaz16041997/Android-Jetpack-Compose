@@ -20,8 +20,16 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.withStyle
 
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -31,21 +39,37 @@ import com.imtiaz.composeui.ui.theme.ComposeUITheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
+
         setContent {
             ComposeUITheme {
                 // A surface container using the 'background' color from the theme
 //                    UiDesign() //Rows,Columns,basic sizing
 //                     UIModifierDesign()  //Modifiers
-                val painter = painterResource(id = R.drawable.flash)
-                val description = "I'm The Fastest Man Alive"
-                val title = "I'm The Fastest Man Alive"
-                Box(modifier = Modifier
-                    .fillMaxWidth(0.5f)
-                    .padding(16.dp)
-                ){
-                    UIDesignImageCard(painter = painter ,contentDescription = description  ,title = title) //Creating an Image Card Composable
+//                val painter = painterResource(id = R.drawable.flash)
+//                val description = "I'm The Fastest Man Alive"
+//                val title = "I'm The Fastest Man Alive"
+//                Box(modifier = Modifier
+//                    .fillMaxWidth(0.5f)
+//                    .padding(16.dp)
+//                ){
+//                    UIDesignImageCard(painter = painter ,contentDescription = description  ,title = title) //Creating an Image Card Composable
+//
+//                }
 
-                }
+                val fontFamily = FontFamily(
+                    Font(R.font.josefinslab_medium, FontWeight.Thin),
+                    Font(R.font.josefinslab_light, FontWeight.Light),
+                    Font(R.font.josefinslab_extralight, FontWeight.Normal))
+                UIStylingText(fontFamily) // Styling Text
+
+
+
+
+
+
+
             }
         }
     }
@@ -170,4 +194,44 @@ fun UIDesignImageCard(
                 }
             }
         }
+}
+
+
+@Composable
+fun UIStylingText(fontFamily:FontFamily){
+        Box(modifier = Modifier
+            .fillMaxSize()
+            .background(Color(0xFF101010))){
+                Text(
+                    text = buildAnnotatedString {
+                                                withStyle(
+                                                    style = SpanStyle(
+                                                        color = Color.Green,
+                                                        fontSize = 50.sp
+                                                    )
+                                                ){
+                                                    append("J")
+                                                }
+                                                    append("etpack")
+                        withStyle(
+                            style = SpanStyle(
+                                color = Color.Green,
+                                fontSize = 50.sp
+                            )
+                        ){
+                            append("C")
+                        }
+                        append("ompose")
+                    },
+                    color = Color.White,
+                    fontSize = 30.sp,
+                    fontFamily = fontFamily,
+                    fontWeight = FontWeight.Bold,
+                    fontStyle = FontStyle.Italic,
+                    textAlign = TextAlign.Center,
+                    textDecoration = TextDecoration.Underline
+
+                    )
+            }
+
 }
