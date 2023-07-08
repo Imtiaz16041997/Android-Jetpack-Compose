@@ -14,6 +14,8 @@ import androidx.compose.material.Card
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -35,6 +37,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 import com.imtiaz.composeui.ui.theme.ComposeUITheme
+import kotlin.random.Random
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,17 +61,16 @@ class MainActivity : ComponentActivity() {
 //
 //                }
 
-                val fontFamily = FontFamily(
-                    Font(R.font.josefinslab_medium, FontWeight.Thin),
-                    Font(R.font.josefinslab_light, FontWeight.Light),
-                    Font(R.font.josefinslab_extralight, FontWeight.Normal))
-                UIStylingText(fontFamily) // Styling Text
+//                val fontFamily = FontFamily(
+//                    Font(R.font.josefinslab_medium, FontWeight.Thin),
+//                    Font(R.font.josefinslab_light, FontWeight.Light),
+//                    Font(R.font.josefinslab_extralight, FontWeight.Normal))
+//                UIStylingText(fontFamily) // Styling Text
 
 
 
-
-
-
+                /*State*/
+                UIState(modifier = Modifier.fillMaxSize())
 
             }
         }
@@ -141,12 +143,7 @@ fun UiDesign() {
 
 
 @Composable
-fun UIDesignImageCard(
-    painter: Painter,
-    contentDescription: String,
-    title: String,
-    modifier: Modifier = Modifier
-    )
+fun UIDesignImageCard(painter: Painter, contentDescription: String, title: String, modifier: Modifier = Modifier)
 
 {
         Card(
@@ -233,5 +230,29 @@ fun UIStylingText(fontFamily:FontFamily){
 
                     )
             }
+
+}
+
+@Composable
+fun UIState(modifier: Modifier = Modifier){
+    val color = remember{
+        mutableStateOf(Color.Yellow)
+    }
+
+    Box(
+        modifier = modifier
+            .background(color.value)
+            .clickable {
+                color.value = Color(
+                    Random.nextFloat(),
+                    Random.nextFloat(),
+                    Random.nextFloat(),
+                    1f
+                )
+            }
+
+    ){
+
+    }
 
 }
