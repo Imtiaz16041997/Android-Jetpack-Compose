@@ -1,7 +1,9 @@
 package com.imtiaz.composeui
 
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.widget.Space
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -11,12 +13,12 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
+import androidx.compose.material.*
 
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
+
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -38,6 +40,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 import com.imtiaz.composeui.ui.theme.ComposeUITheme
+import kotlinx.coroutines.launch
 import kotlin.random.Random
 
 class MainActivity : ComponentActivity() {
@@ -71,7 +74,7 @@ class MainActivity : ComponentActivity() {
 
 
                 /*State*/
-                Column(Modifier.fillMaxSize()) {
+                /*Column(Modifier.fillMaxSize()) {
                     val color = remember {
                         mutableStateOf(Color.Yellow)
                     }
@@ -92,9 +95,11 @@ class MainActivity : ComponentActivity() {
                     )
 
                 }
-//                UIState(modifier = Modifier.fillMaxSize())
+//                UIState(modifier = Modifier.fillMaxSize())*/
 
+                /*Textfields, Buttons & Showing Snackbars*/
 
+                UITextNButtonNSnackBar()
 
 
 
@@ -270,16 +275,65 @@ fun UIState(modifier: Modifier = Modifier,updateColor: (Color) -> Unit){
         modifier = modifier
             .background(Color.Red)
             .clickable {
-                updateColor(Color(
-                    Random.nextFloat(),
-                    Random.nextFloat(),
-                    Random.nextFloat(),
-                    1f
-                ))
+                updateColor(
+                    Color(
+                        Random.nextFloat(),
+                        Random.nextFloat(),
+                        Random.nextFloat(),
+                        1f
+                    )
+                )
             }
 
     ){
 
     }
+
+}
+
+
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
+@Composable
+fun UITextNButtonNSnackBar(){
+
+    val scaffoldState = rememberScaffoldState()
+    var textFieldState by remember{
+        mutableStateOf("")
+    }
+    val scope = rememberCoroutineScope()
+
+    Scaffold(
+        modifier = Modifier.fillMaxSize(),
+        scaffoldState = scaffoldState
+    ){
+        Column(horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(horizontal = 30.dp)
+            ) {
+                TextField(
+                    value = textFieldState,
+                    label = {
+                            Text(text = "Enter your Name")
+                    },
+                    onValueChange = {
+                        textFieldState = it
+                    },
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth()
+
+                )
+            Spacer(modifier = Modifier.height(16.dp))
+            Button(onClick = {
+                scope.launch {
+                    scaffoldState.snackbarHostState.showSnackbar("Hello $textFieldState")
+                }
+            }) {
+                Text(text = "pls greet me")
+            }
+        }
+    }
+
 
 }
