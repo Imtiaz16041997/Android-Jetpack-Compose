@@ -9,6 +9,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 
@@ -70,14 +71,40 @@ class MainActivity : ComponentActivity() {
 
 
                 /*State*/
-                UIState(modifier = Modifier.fillMaxSize())
+                Column(Modifier.fillMaxSize()) {
+                    val color = remember {
+                        mutableStateOf(Color.Yellow)
+                    }
+
+                    UIState(
+                        modifier = Modifier
+                            .weight(1f)
+                            .fillMaxSize()
+                    )
+                    {
+                        color.value = it
+                    }
+                    Box(
+                        modifier = Modifier
+                            .background(color.value)
+                            .weight(1f)
+                            .fillMaxSize()
+                    )
+
+                }
+//                UIState(modifier = Modifier.fillMaxSize())
+
+
+
+
+
 
             }
         }
     }
 
 
-   
+
 }
 
 @Composable
@@ -146,109 +173,109 @@ fun UiDesign() {
 fun UIDesignImageCard(painter: Painter, contentDescription: String, title: String, modifier: Modifier = Modifier)
 
 {
-        Card(
-            modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(15.dp),
-            elevation = 5.dp
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(15.dp),
+        elevation = 5.dp
 
-        ) {
-            Box(modifier = Modifier.height(200.dp)){
-                /*Put an image here*/
-                Image(
-                    painter = painter,
-                    contentDescription = contentDescription,
-                    contentScale = ContentScale.Crop
-                )
-                Box(modifier = Modifier
-                    .fillMaxSize()
-                    .background(
-                        Brush.verticalGradient(
-                            colors = listOf(
-                                Color.Transparent,
-                                Color.Black
-                            ),
-                            startY = 300f
-                        )
+    ) {
+        Box(modifier = Modifier.height(200.dp)){
+            /*Put an image here*/
+            Image(
+                painter = painter,
+                contentDescription = contentDescription,
+                contentScale = ContentScale.Crop
+            )
+            Box(modifier = Modifier
+                .fillMaxSize()
+                .background(
+                    Brush.verticalGradient(
+                        colors = listOf(
+                            Color.Transparent,
+                            Color.Black
+                        ),
+                        startY = 300f
                     )
-
-                ){
-
-                }
-
-
-
-
-
-                /*Top of that image we put a box */
-                Box(modifier = Modifier
-                    .fillMaxSize()
-                    .padding(12.dp),
-                    contentAlignment = Alignment.BottomStart
                 )
-                /*in that box we have our text*/
-                {
-                    Text(title, style = TextStyle(color = Color.White, fontSize = 16.sp))
-                }
+
+            ){
+
+            }
+
+
+
+
+
+            /*Top of that image we put a box */
+            Box(modifier = Modifier
+                .fillMaxSize()
+                .padding(12.dp),
+                contentAlignment = Alignment.BottomStart
+            )
+            /*in that box we have our text*/
+            {
+                Text(title, style = TextStyle(color = Color.White, fontSize = 16.sp))
             }
         }
+    }
 }
 
 
 @Composable
 fun UIStylingText(fontFamily:FontFamily){
-        Box(modifier = Modifier
-            .fillMaxSize()
-            .background(Color(0xFF101010))){
-                Text(
-                    text = buildAnnotatedString {
-                                                withStyle(
-                                                    style = SpanStyle(
-                                                        color = Color.Green,
-                                                        fontSize = 50.sp
-                                                    )
-                                                ){
-                                                    append("J")
-                                                }
-                                                    append("etpack")
-                        withStyle(
-                            style = SpanStyle(
-                                color = Color.Green,
-                                fontSize = 50.sp
-                            )
-                        ){
-                            append("C")
-                        }
-                        append("ompose")
-                    },
-                    color = Color.White,
-                    fontSize = 30.sp,
-                    fontFamily = fontFamily,
-                    fontWeight = FontWeight.Bold,
-                    fontStyle = FontStyle.Italic,
-                    textAlign = TextAlign.Center,
-                    textDecoration = TextDecoration.Underline
-
+    Box(modifier = Modifier
+        .fillMaxSize()
+        .background(Color(0xFF101010))){
+        Text(
+            text = buildAnnotatedString {
+                withStyle(
+                    style = SpanStyle(
+                        color = Color.Green,
+                        fontSize = 50.sp
                     )
-            }
+                ){
+                    append("J")
+                }
+                append("etpack")
+                withStyle(
+                    style = SpanStyle(
+                        color = Color.Green,
+                        fontSize = 50.sp
+                    )
+                ){
+                    append("C")
+                }
+                append("ompose")
+            },
+            color = Color.White,
+            fontSize = 30.sp,
+            fontFamily = fontFamily,
+            fontWeight = FontWeight.Bold,
+            fontStyle = FontStyle.Italic,
+            textAlign = TextAlign.Center,
+            textDecoration = TextDecoration.Underline
+
+        )
+    }
 
 }
 
 @Composable
-fun UIState(modifier: Modifier = Modifier){
-    val color = remember{
-        mutableStateOf(Color.Yellow)
-    }
+fun UIState(modifier: Modifier = Modifier,updateColor: (Color) -> Unit){
+//    val color = remember{
+//        mutableStateOf(Color.Yellow)
+//    }
 
     Box(
         modifier = modifier
-            .background(color.value)
+            .background(Color.Red)
             .clickable {
-                color.value = Color(
+                updateColor(Color(
                     Random.nextFloat(),
                     Random.nextFloat(),
                     Random.nextFloat(),
                     1f
-                )
+                ))
             }
 
     ){
