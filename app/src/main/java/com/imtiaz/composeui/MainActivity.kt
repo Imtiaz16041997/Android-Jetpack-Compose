@@ -56,8 +56,8 @@ class MainActivity : ComponentActivity() {
 
 //                ColumnBasicLayoutComposable()
 //                RowBasicLayoutComposable()
-                BoxBasicLayoutComposable()
-
+//                BoxBasicLayoutComposable()
+                  ListViewItemUI()
                 // A surface container using the 'background' color from the theme
 //                    UiDesign() //Rows,Columns,basic sizing
 //                     UIModifierDesign()  //Modifiers
