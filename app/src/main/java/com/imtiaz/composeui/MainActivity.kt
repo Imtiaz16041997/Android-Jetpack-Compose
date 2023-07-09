@@ -53,6 +53,11 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             ComposeUITheme {
+
+//                ColumnBasicLayoutComposable()
+//                RowBasicLayoutComposable()
+
+
                 // A surface container using the 'background' color from the theme
 //                    UiDesign() //Rows,Columns,basic sizing
 //                     UIModifierDesign()  //Modifiers
