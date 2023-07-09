@@ -63,7 +63,7 @@ fun BoxBasicLayoutComposable(){
 @Composable
 fun ListViewItemUI() {
 
-    Row {
+    Row(Modifier.padding(8.dp)) {
         Image(
             painter = painterResource(id = R.drawable.flash),
             contentDescription = "",
@@ -79,6 +79,38 @@ fun ListViewItemUI() {
 
             Text(
                 text = "Software Engineer",
+                fontSize = 14.sp,
+                fontWeight = FontWeight.Thin
+            )
+
+        }
+
+    }
+}
+
+
+/*Using Row Column and Box for design a
+Item layout also making this as parameterized function*/
+
+@Composable
+fun ListViewItemUIParameterized(imgID: Int,name:String,profession:String) {
+
+    Row(Modifier.padding(8.dp)) {
+        Image(
+            painter = painterResource(id = imgID),
+            contentDescription = "",
+            Modifier.size(40.dp)
+        )
+
+        Column() {
+            Text(
+                text = name,
+                fontSize = 24.sp,
+                fontWeight = FontWeight.Bold
+            )
+
+            Text(
+                text = profession,
                 fontSize = 14.sp,
                 fontWeight = FontWeight.Thin
             )
