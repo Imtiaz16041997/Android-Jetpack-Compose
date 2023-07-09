@@ -105,7 +105,7 @@ class MainActivity : ComponentActivity() {
 
                 /*List*/
 
-                UiItemList()
+                RecyclerView()
 
             }
         }
@@ -342,12 +342,4 @@ fun UITextNButtonNSnackBar(){
 }
 
 
-@Preview
-@Composable
-fun UiItemList(){
 
-
-
-
-
-}
