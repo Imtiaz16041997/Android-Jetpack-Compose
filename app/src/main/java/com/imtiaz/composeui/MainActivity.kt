@@ -58,7 +58,8 @@ class MainActivity : ComponentActivity() {
 //                RowBasicLayoutComposable()
 //                BoxBasicLayoutComposable()
 //                  ListViewItemUI()
-                ListViewItemUIParameterized(R.drawable.flash,"Imtiaz","SE")
+//                ListViewItemUIParameterized(R.drawable.flash,"Imtiaz","SE")
+                ByDefaultPreview()
                 // A surface container using the 'background' color from the theme
 //                    UiDesign() //Rows,Columns,basic sizing
 //                     UIModifierDesign()  //Modifiers

@@ -92,6 +92,13 @@ fun ListViewItemUI() {
 /*Using Row Column and Box for design a
 Item layout also making this as parameterized function*/
 
+
+@Preview(showBackground = true, widthDp = 300, heightDp = 300)
+@Composable
+fun ByDefaultPreview(){
+    ListViewItemUIParameterized(R.drawable.flash,"Imtiaz","SE")
+}
+
 @Composable
 fun ListViewItemUIParameterized(imgID: Int,name:String,profession:String) {
 
