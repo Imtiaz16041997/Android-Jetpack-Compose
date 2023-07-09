@@ -2,7 +2,10 @@ package com.imtiaz.composeui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+<<<<<<< HEAD
 import androidx.compose.foundation.layout.Row
+=======
+>>>>>>> origin/master
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -11,7 +14,11 @@ import androidx.compose.ui.unit.sp
 
 @Preview(showBackground = true, widthDp = 300, heightDp = 300)
 @Composable
+<<<<<<< HEAD
 fun ColumnBasicLayoutComposable(){
+=======
+fun BasicLayoutComposable(){
+>>>>>>> origin/master
     Column(
         verticalArrangement = Arrangement.SpaceEvenly,
         horizontalAlignment = Alignment.CenterHorizontally
@@ -20,6 +27,7 @@ fun ColumnBasicLayoutComposable(){
         Text(text = "Text2", fontSize = 24.sp)
     }
 
+<<<<<<< HEAD
 }
 
 
@@ -35,4 +43,6 @@ fun RowBasicLayoutComposable(){
         Text(text = "Text2", fontSize = 24.sp)
     }
 
+=======
+>>>>>>> origin/master
 }
