@@ -107,7 +107,8 @@ class MainActivity : ComponentActivity() {
 
 //                RecyclerViewNormal() // Normal Column
 
-                RecyclerViewLazyColumn() // LazyColumn
+//                RecyclerViewLazyColumn() // LazyColumn
+                RecyclerViewLazyColumnWithIndex() // LazyColumn
 
             }
         }

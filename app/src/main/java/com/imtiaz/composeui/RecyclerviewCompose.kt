@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Text
@@ -61,3 +62,29 @@ fun RecyclerViewLazyColumn(){
 
     }
 }
+
+
+@Preview
+@Composable
+fun RecyclerViewLazyColumnWithIndex(){
+
+    LazyColumn{
+        itemsIndexed(
+            listOf("This","is","Jetpack","Compose")
+        ){index, item ->
+            Text(
+                text = "$item",
+                fontSize = 24.sp,
+                fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 24.dp)
+            )
+        }
+
+
+    }
+}
+
+
