@@ -56,7 +56,7 @@ class MainActivity : ComponentActivity() {
 
 //                ColumnBasicLayoutComposable()
 //                RowBasicLayoutComposable()
-
+                BoxBasicLayoutComposable()
 
                 // A surface container using the 'background' color from the theme
 //                    UiDesign() //Rows,Columns,basic sizing
@@ -113,7 +113,7 @@ class MainActivity : ComponentActivity() {
 //                RecyclerViewNormal() // Normal Column
 
 //                RecyclerViewLazyColumn() // LazyColumn
-                RecyclerViewLazyColumnWithIndex() // LazyColumn
+//                RecyclerViewLazyColumnWithIndex() // LazyColumn
 
             }
         }
