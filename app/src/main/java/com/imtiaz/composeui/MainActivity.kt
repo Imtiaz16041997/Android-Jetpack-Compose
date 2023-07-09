@@ -2,6 +2,7 @@ package com.imtiaz.composeui
 
 
 import android.annotation.SuppressLint
+import android.icu.text.LocaleDisplayNames.UiListItem
 import android.os.Bundle
 import android.widget.Space
 import androidx.activity.ComponentActivity
@@ -35,6 +36,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.tooling.preview.Preview
 
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -99,10 +101,11 @@ class MainActivity : ComponentActivity() {
 
                 /*Textfields, Buttons & Showing Snackbars*/
 
-                UITextNButtonNSnackBar()
+//                UITextNButtonNSnackBar()
 
+                /*List*/
 
-
+                UiItemList()
 
             }
         }
@@ -334,6 +337,17 @@ fun UITextNButtonNSnackBar(){
             }
         }
     }
+
+
+}
+
+
+@Preview
+@Composable
+fun UiItemList(){
+
+
+
 
 
 }
