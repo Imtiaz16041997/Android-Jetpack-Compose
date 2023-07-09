@@ -53,6 +53,12 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             ComposeUITheme {
+
+
+                /*Basic Row/Column/Box*/
+
+                BasicLayoutComposable()
+
                 // A surface container using the 'background' color from the theme
 //                    UiDesign() //Rows,Columns,basic sizing
 //                     UIModifierDesign()  //Modifiers
@@ -108,7 +114,7 @@ class MainActivity : ComponentActivity() {
 //                RecyclerViewNormal() // Normal Column
 
 //                RecyclerViewLazyColumn() // LazyColumn
-                RecyclerViewLazyColumnWithIndex() // LazyColumn
+//                RecyclerViewLazyColumnWithIndex() // LazyColumn
 
             }
         }
