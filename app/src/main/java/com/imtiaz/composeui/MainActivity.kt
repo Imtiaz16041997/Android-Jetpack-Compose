@@ -61,7 +61,7 @@ class MainActivity : ComponentActivity() {
 //                ListViewItemUIParameterized(R.drawable.flash,"Imtiaz","SE")
 //                ByDefaultPreview()
                 /*ConstraintLayout*/
-                ConstraintLayoutCall()
+//                ConstraintLayoutCall()
                 // A surface container using the 'background' color from the theme
 //                    UiDesign() //Rows,Columns,basic sizing
 //                     UIModifierDesign()  //Modifiers
