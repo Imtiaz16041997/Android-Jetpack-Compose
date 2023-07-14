@@ -59,7 +59,9 @@ class MainActivity : ComponentActivity() {
 //                BoxBasicLayoutComposable()
 //                  ListViewItemUI()
 //                ListViewItemUIParameterized(R.drawable.flash,"Imtiaz","SE")
-                ByDefaultPreview()
+//                ByDefaultPreview()
+                /*ConstraintLayout*/
+                ConstraintLayoutCall()
                 // A surface container using the 'background' color from the theme
 //                    UiDesign() //Rows,Columns,basic sizing
 //                     UIModifierDesign()  //Modifiers
@@ -187,56 +189,56 @@ fun UiDesign() {
 }
 
 
-@Composable
-fun UIDesignImageCard(painter: Painter, contentDescription: String, title: String, modifier: Modifier = Modifier)
-
-{
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(15.dp),
-        elevation = 5.dp
-
-    ) {
-        Box(modifier = Modifier.height(200.dp)){
-            /*Put an image here*/
-            Image(
-                painter = painter,
-                contentDescription = contentDescription,
-                contentScale = ContentScale.Crop
-            )
-            Box(modifier = Modifier
-                .fillMaxSize()
-                .background(
-                    Brush.verticalGradient(
-                        colors = listOf(
-                            Color.Transparent,
-                            Color.Black
-                        ),
-                        startY = 300f
-                    )
-                )
-
-            ){
-
-            }
-
-
-
-
-
-            /*Top of that image we put a box */
-            Box(modifier = Modifier
-                .fillMaxSize()
-                .padding(12.dp),
-                contentAlignment = Alignment.BottomStart
-            )
-            /*in that box we have our text*/
-            {
-                Text(title, style = TextStyle(color = Color.White, fontSize = 16.sp))
-            }
-        }
-    }
-}
+//@Composable
+//fun UIDesignImageCard(painter: Painter, contentDescription: String, title: String, modifier: Modifier = Modifier)
+//
+//{
+//    Card(
+//        modifier = Modifier.fillMaxWidth(),
+//        shape = RoundedCornerShape(15.dp),
+//        elevation = 5.dp
+//
+//    ) {
+//        Box(modifier = Modifier.height(200.dp)){
+//            /*Put an image here*/
+//            Image(
+//                painter = painter,
+//                contentDescription = contentDescription,
+//                contentScale = ContentScale.Crop
+//            )
+//            Box(modifier = Modifier
+//                .fillMaxSize()
+//                .background(
+//                    Brush.verticalGradient(
+//                        colors = listOf(
+//                            Color.Transparent,
+//                            Color.Black
+//                        ),
+//                        startY = 300f
+//                    )
+//                )
+//
+//            ){
+//
+//            }
+//
+//
+//
+//
+//
+//            /*Top of that image we put a box */
+//            Box(modifier = Modifier
+//                .fillMaxSize()
+//                .padding(12.dp),
+//                contentAlignment = Alignment.BottomStart
+//            )
+//            /*in that box we have our text*/
+//            {
+//                Text(title, style = TextStyle(color = Color.White, fontSize = 16.sp))
+//            }
+//        }
+//    }
+//}
 
 
 @Composable
